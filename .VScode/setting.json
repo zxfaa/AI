@@ -2,5 +2,12 @@
     "python.pythonpath":
     "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
     "python.linting.enable":true,
-    "python.linting.pylintenabled":true
+    "python.linting.pylintenabled":true,
+    "fies.trimTrailngWhitespace":true,
+    "files.autoSave":"onFocusChange",
+    "[python]":{
+        "editor.formatOnType":true,
+        "editor.formatOnSave":true,
+        "editor.renderIndentGuides":true
+    }
 }
