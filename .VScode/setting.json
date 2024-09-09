@@ -2,12 +2,16 @@
     "python.pythonpath":
     "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
     "python.linting.enable":true,
-    "python.linting.pylintenabled":true,
-    "fies.trimTrailngWhitespace":true,
+   "python.linting.pylintEnabled":true,
+    "files.trimTrailingWhitespace":true,
     "files.autoSave":"onFocusChange",
     "[python]":{
         "editor.formatOnType":true,
         "editor.formatOnSave":true,
-        "editor.renderIndentGuides":true
+        "editor.renderIndentGuides":true,
+        "editor.insertSpaces":true,
+        "editor.detectIndentation":true,
+        "editor.tabSize":4,
+        "editor.guides.indentation":true
     }
 }
