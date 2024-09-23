@@ -11,6 +11,14 @@ cv2.rectangle(image , (300,200),(350,260), (0,0,255) , -1)#紅色實心矩形
 cv2.circle(image , (500,300) , 40 , (255,255,0) , -1) #實心圓
 
 pts = numpy.array([[300,300],[300,340],[350,320]],numpy.int32)
+pts = pts.reshape(-1,1,2)
 
 cv2.polylines(image,[pts] , True , (0,255,255) , 2) #黃色多邊形
+cv2.fillPoly(image,[pts],(0,255,255)) #
+
 cv2.putText(image,"background.jpg" , (20,420) , cv2.FONT_HERSHEY_SIMPLEX , 1 , (255,255,255))
+
+
+cv2.imshow("ShowImage",image)
+cv2.waitKey(0)
+cv2.destroyAllWindows
