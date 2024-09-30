@@ -1,4 +1,7 @@
 import cv2 
+import os
+os.chdir(os.path.dirname(__file__))
+
 casc_path = cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
 faceCascade = cv2.CascadeClassifier(casc_path)
 imagename = "media\\person1.jpg"

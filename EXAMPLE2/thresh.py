@@ -1,6 +1,8 @@
 import cv2
 from PIL import Image
 import numpy as np
+import os
+os.chdir(os.path.dirname(__file__))
 gray = cv2.imread("media\\img01.jpg", 0) #以灰階模式開啟圖片
 _,thresh = cv2.threshold(gray, 99, 255, cv2.THRESH_BINARY) #轉為黑白
 cv2.imwrite("media\\thresh1.jpg", thresh) #存檔
