@@ -1,5 +1,7 @@
 from PIL import Image,ImageDraw
 from PIL import ImageFont
+import os
+os.chdir(os.path.dirname(__file__))
 
 img = Image.new("RGB",(300,400),"lightgray") #淡灰色
 drawimg=ImageDraw.Draw(img)
