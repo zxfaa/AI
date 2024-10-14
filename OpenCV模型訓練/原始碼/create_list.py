@@ -1,4 +1,5 @@
 import glob,os
+os.chdir(os.path.dirname(__file__))
 
 fp = open('Haar-Training_carPlate/training/negative/bg.txt', 'w')
 files = glob.glob("Haar-Training_carPlate/training/negative/*.jpg")
