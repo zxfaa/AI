@@ -2,6 +2,7 @@ from PIL import Image
 import glob
 import os
 
+os.chdir(os.path.dirname(__file__))
 myfiles = glob.glob("carPlate/*.JPG")
 print('開始轉換圖形格式！')
 for f in myfiles:

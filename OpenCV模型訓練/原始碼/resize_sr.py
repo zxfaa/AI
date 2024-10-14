@@ -11,7 +11,7 @@ def dirResize(src, dst):
     print('開始轉換圖形尺寸！')
     for i, f in enumerate(myfiles):
         img = Image.open(f)
-        img_new = img.resize((300, 225), PIL.Image.ANTIALIAS)  #尺寸300x225
+        img_new = img.resize((300, 225), PIL.Image.Resampling.LANCZOS)  #尺寸300x225
         outname = str("resizejpg") + str('{:0>3d}').format(i+1) + '.jpg'
         img_new.save(dst + '/' + outname)
     print('轉換圖形尺寸完成！\n')
@@ -22,5 +22,6 @@ import glob
 import shutil, os
 from time import sleep
 
+os.chdir(os.path.dirname(__file__)) #設定目前目錄為工作目錄
 dirResize('carPlate_sr', 'carPlate')
 dirResize('realPlate_sr', 'realPlate')
