@@ -1,5 +1,6 @@
 from PIL import Image
-import glob
+import glob,os
+os.chdir(os.path.dirname(__file__))  # 設定工作目錄為當前檔案所在的目錄
 
 path = 'Haar-Training_carPlate/training/positive/'
 fp = open(path + 'info.txt', 'r')
@@ -26,7 +27,7 @@ else:
         if (x-reduceW)>5 and (y-reduceH)>5:  #左上角有空間才移除左上角
             count += 1  #編號加1,此數值會做為檔名用
             newimg = img.crop((reduceW, reduceH, 300, 225))  #擷取圖形
-            newimg = newimg.resize((300, 225), Image.ANTIALIAS)  #放大圖形
+            newimg = newimg.resize((300, 225), Image.Resampling.LANCZOS)  #放大圖形
             newimg.save(path + 'rawdata/bmpraw{:0>3d}.bmp'.format(count), 'bmp')  #存檔
             newx = int((x-reduceW)*multi-reduceW*(multi-1)/2)  #新圖X坐標
             newy = int((y-reduceH)*multi-reduceH*(multi-1)/2)  #新圖Y坐標            
@@ -35,7 +36,7 @@ else:
         if (x+w)<(300-reduceW-5) and y>(reduceW+5):
             count += 1
             newimg = img.crop((0, reduceH, (300-reduceW), 225))
-            newimg = newimg.resize((300, 225), Image.ANTIALIAS)
+            newimg = newimg.resize((300, 225), Image.Resampling.LANCZOS)
             newimg.save(path + 'rawdata/bmpraw{:0>3d}.bmp'.format(count), 'bmp')
             newx = int(x*multi)
             newy = int((y-reduceH)*multi)
@@ -44,7 +45,7 @@ else:
         if (x-reduceW)>5 and (y+h)<(225-reduceH-5):
             count += 1
             newimg = img.crop((reduceW, 0, 300, 225-reduceH))
-            newimg = newimg.resize((300, 225), Image.ANTIALIAS)
+            newimg = newimg.resize((300, 225), Image.Resampling.LANCZOS)
             newimg.save(path + 'rawdata/bmpraw{:0>3d}.bmp'.format(count), 'bmp')
             newx = int((x-reduceW)*multi)
             newy = int(y*multi)
@@ -53,7 +54,7 @@ else:
         if (x+w)<(300-reduceW-5) and (y+h)<(225-reduceH-5):
             count += 1
             newimg = img.crop((0, 0, (300-reduceW), 225-reduceH))
-            newimg = newimg.resize((300, 225), Image.ANTIALIAS)
+            newimg = newimg.resize((300, 225), Image.Resampling.LANCZOS)
             newimg.save(path + 'rawdata/bmpraw{:0>3d}.bmp'.format(count), 'bmp')
             newx = int(x*multi)
             newy = int(y*multi)
