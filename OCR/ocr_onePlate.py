@@ -4,6 +4,9 @@ import sys
 import pyocr
 import pyocr.builders
 import re
+import os
+
+os.chdir(os.path.dirname(__file__)) #設定目前目錄為工作目錄
 
 image = cv2.imread('assember.jpg')
 #OCR辨識車牌

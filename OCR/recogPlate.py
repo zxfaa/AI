@@ -51,6 +51,7 @@ import pyocr.builders
 import re
 
 dirResize('predictPlate_sr', 'predictPlate')
+os.chdir(os.path.dirname(__file__)) #設定目前目錄為工作目錄
 
 print('開始擷取車牌！')
 print('無法擷取車牌的圖片：')
