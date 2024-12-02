@@ -1,0 +1,17 @@
+px.iterrows() 返回的是一個迭代器，每次迭代都會產生一對(index, row)，其中index是行的索引，row是包含每一列數據的 Pandas Series。在這個程式中，px 是一個 DataFrame，代表模型預測的物件邊界框。所以，px.iterrows() 用於遍歷每一行(row)，即每個被模型偵測到的物件。
+
+在這個特定的迴圈中：
+
+for index, row in px.iterrows():
+    # 提取物件的座標和類別
+    x1 = int(row[0])
+    y1 = int(row[1])
+    x2 = int(row[2])
+    y2 = int(row[3])
+    d = int(row[5])
+    c = class_list[d]
+    
+    # 如果該物件是車輛，將其座標加入清單
+    if 'car' in c:
+        list.append([x1, y1, x2, y2])
+
